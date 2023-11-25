@@ -22,3 +22,27 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+.vscode/*
+!.vscode/extensions.json
+!.vscode/vue3.2.code-snippets
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+src/views/Exam/card.vue
+src/views/Exam/card_1.vue
+src/views/Exam/Examstart.vue
+src/views/Exam/index.js
+src/views/Exam/index1.vue
+src/views/Exam/index2.vue
+src/views/Exam/index3.vue
+src/views/Login/index1.vue
+src/views/Exam/a.vue
