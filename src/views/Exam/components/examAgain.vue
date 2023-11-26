@@ -20,7 +20,7 @@ const props = defineProps({
     modleDesc: String
 })
 const emit = defineEmits(["modleClick"])
-const playAgain = (modleDesc) => {
+const playAgain = (modleDesc:string) => {
     emit('modleClick', modleDesc)
 }
 </script>

@@ -48,9 +48,8 @@ const timer = () => {
         if (value.value < 100) {
             value.value += 10;
         } else {
-            router.push({ path: "/login" })
             clearInterval(timer);
-            
+            router.push({ path: "/exam" })
         }
     }, 50);
 }
@@ -90,6 +89,7 @@ onMounted(() => {
             margin: 16px 0 0;
             display: flex;
             justify-content: center;
+
             .Frame {
                 width: 261px;
             }

@@ -65,7 +65,7 @@ const list_active = ref(1)
 const getQuest = async () => {
     await getQuestionList().then(res => {
         console.log(res, '题库');
-        const { code, data, msg } = res
+        const { code, data } = res
         if (code === 0) {
             questData.value = data
             // nextTick(() => {
@@ -86,7 +86,8 @@ const submit = async () => {
         optionsList: findCardData.value
     }
     await submitQuestion(data).then((res) => {
-
+        console.log(res);
+        
     })
 }
 const [TM1, TM2] = [5, 10]
@@ -224,8 +225,8 @@ const showModalIndex = ref(null)
 const cardSelectedArr = ref([])
 const findCardData = ref([])
 const questEvent = ref(null)
-const cardClick = (questItem, card, cardIndex, index) => {
-    console.log(isLock.value, '游戏状态 cardClick');
+const cardClick = (questItem:object, card:string|number, cardIndex:string|number, index:number) => {
+    console.log(isLock.value, '游戏状态 cardClick',card);
     if (isLock.value === 2) {
         let $fcards = cardsRef.value
         let $fcard = $fcards[index]
@@ -271,7 +272,12 @@ const cardClick = (questItem, card, cardIndex, index) => {
         }
     }
 }
-const selectClick = ({ isOp, userOption, event }) => { // 选择题按钮
+interface selectObj {
+    isOp:boolean,
+    userOption: string,
+    event: object
+}
+const selectClick = ({ isOp, userOption, event }:selectObj) => { // 选择题按钮
     findCardData.value.push({ ...event, userOption: userOption })
     if (isOp) {
         if (list_active.value === questData.value.length) {
@@ -301,7 +307,7 @@ const modleClick = () => {
         list_active.value++
     }
 }
-const playAgain = (event) => {
+const playAgain = (event:string) => {
 
     if (event == '再次挑战') {
         initStatus(0)
@@ -331,7 +337,7 @@ const closeModal = () => { // 关闭遮罩层
         countdown();
     }
 }
-const showModal = (index) => {
+const showModal = (index:number|string) => {
     clearTimeout(timer.value); // 游戏中点击活动规则 暂停倒计时
     showSelect.value = true
     showModalIndex.value = index
@@ -340,7 +346,7 @@ const timeTotal = () => {
     endTime.value = new Date().getTime();
     totalTime.value = Math.floor((endTime - startTime) / 1000); // 计算整体秒数时间
 }
-const initStatus = (status) => {
+const initStatus = (status:number) => {
     isLock.value = status
     localStorage.setItem("CARD_ISLOCK", isLock.value)
 }

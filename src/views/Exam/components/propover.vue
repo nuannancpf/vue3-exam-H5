@@ -4,8 +4,8 @@
     </div>
 </template>
 <script lang="ts" setup name="Propover">
-import { ref, onMounted, defineProps } from 'vue'
-const props = defineProps({
+import { defineProps } from 'vue'
+defineProps({
     showSelect: Boolean
 })
 </script>

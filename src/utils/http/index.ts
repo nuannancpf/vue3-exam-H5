@@ -5,11 +5,10 @@ import Axios, {
   type AxiosRequestConfig
 } from "axios";
 // import { ContentTypeEnum, ResultEnum } from "@/enums/requestEnum";
-import { ResultEnum } from "@/request/enum"
+import { ResultEnum } from "./enum"
 import NProgress from "../progress";
-import { showFailToast } from "vant";
 // import "vant/es/toast/style";
-
+import { ResultData } from "./interface/index"
 // 默认 axios 实例请求配置
 const config = {
   headers: {
@@ -34,7 +33,7 @@ class RequestHttp {
       NProgress.start();
       const token = localStorage.getItem("TOKEN")
       if (token) {
-        request.headers['token'] = token
+        request.headers.token = token
       }
       // return { ...request, headers: { ...request.headers, "x-access-token": token } };
       return request
@@ -47,10 +46,8 @@ class RequestHttp {
        *  服务器换返回信息 -> [拦截统一处理] -> 客户端JS获取到信息
        */
     this.service.interceptors.response.use((response: AxiosResponse) => {
-      const { data, config } = response
-      const token = localStorage.getItem("TOKEN")
+      const { data } = response
       if (data.code === ResultEnum.OVERDUE) {
-        localStorage.getItem("TOKEN", "")
         return Promise.reject(data);
       }
       // * 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错）

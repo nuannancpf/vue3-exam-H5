@@ -23,10 +23,9 @@
     </div>
 </template>
 <script lang="ts" setup name="ExamSuccessful">
-import { ref, onMounted, defineProps, defineEmits } from 'vue'
+import { defineEmits } from 'vue'
 
 const emit = defineEmits(["modleClick"])
-const checked = ref('')
 const nextQuest = () => {
     emit("modleClick")
 }
@@ -88,12 +87,14 @@ const nextQuest = () => {
         display: flex;
         justify-content: center;
         margin: 7px 0 6px;
+
         .image {
             width: 65px;
             height: 58px;
         }
     }
-    .modle_text{
+
+    .modle_text {
         text-align: center;
     }
 

@@ -23,23 +23,23 @@
     </div>
 </template>
 <script lang="ts" setup name="ExamSelect">
-import { ref, onMounted, defineProps, defineEmits, defineExpose } from 'vue'
+import { ref, defineProps, defineEmits } from 'vue'
 const props = defineProps({
     questEvent: Object
 })
 const checked = ref('')
 const emits = defineEmits(["select-click"])
-const questClick = (item, event) => {
+const questClick = (item: object, event: object) => {
     console.log('questClick--->');
-    
-   
+
+
     checked.value = event.options
     if (item.answer == event.options) {
-        emits("select-click", {isOp:true,userOption:event.options, event: event})
-    } else{
-        emits("select-click" , {isOp:false,userOption:event.options, event: event})
+        emits("select-click", { isOp: true, userOption: event.options, event: event })
+    } else {
+        emits("select-click", { isOp: false, userOption: event.options, event: event })
     }
-    
+
 }
 </script>
 <style lang="less" scoped>

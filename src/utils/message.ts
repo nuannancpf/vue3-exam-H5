@@ -1,5 +1,5 @@
-let toastTimer = null;
-export const showToast = (message, t) => {
+let toastTimer: any = null;
+export const showToast = (message: string, t?: number) => {
 
     let alert = document.getElementById("toast");
 
