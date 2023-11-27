@@ -7,6 +7,7 @@ import Axios, {
 // import { ContentTypeEnum, ResultEnum } from "@/enums/requestEnum";
 import { ResultEnum } from "./enum"
 import NProgress from "../progress";
+import JSONbig from 'json-bigint'
 // import "vant/es/toast/style";
 // * 请求响应参数(不包含data)
 interface Result {
@@ -26,6 +27,9 @@ const config = {
   },
   timeout: 0,
   baseURL: import.meta.env.VITE_BASE_API,
+  transformResponse: [function (data) {
+    return JSONbig.parse(data)
+  }]
 };
 
 
@@ -45,7 +49,7 @@ class RequestHttp {
       if (token) {
         request.headers.token = token
       }
-      // return { ...request, headers: { ...request.headers, "x-access-token": token } };
+
       return request
     }, (error: AxiosError) => {
       // showFailToast(error.message);
@@ -56,8 +60,10 @@ class RequestHttp {
        *  服务器换返回信息 -> [拦截统一处理] -> 客户端JS获取到信息
        */
     this.service.interceptors.response.use((response: AxiosResponse) => {
+
       const { data } = response
       if (data.code === ResultEnum.OVERDUE) {
+
         return Promise.reject(data);
       }
       // * 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错）
