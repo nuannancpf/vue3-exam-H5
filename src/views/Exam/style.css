@@ -192,6 +192,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    position: relative;
 }
 
 .desc-time {
@@ -209,7 +210,11 @@
 
 
 }
-
+.exam-music{
+    position: fixed;
+    top: 130px;
+    right: 30px;
+}
 .time {
     width: 57px;
     height: 57px;

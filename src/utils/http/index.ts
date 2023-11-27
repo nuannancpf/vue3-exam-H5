@@ -8,7 +8,17 @@ import Axios, {
 import { ResultEnum } from "./enum"
 import NProgress from "../progress";
 // import "vant/es/toast/style";
-import { ResultData } from "./interface/index"
+// * 请求响应参数(不包含data)
+interface Result {
+  code: string;
+  msg: string;
+}
+
+// * 请求响应参数(包含data)
+interface ResultData<T = any> extends Result {
+  data?: T;
+}
+
 // 默认 axios 实例请求配置
 const config = {
   headers: {

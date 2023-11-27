@@ -9,7 +9,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   NProgress.start();
-  console.log(from);
   
   const TOKEN = localStorage.getItem("TOKEN")
   if (!TOKEN && to.path == '/exam') {
