@@ -57,7 +57,7 @@
 
 .exam_card {
     width: 308px;
-    height: 320px;
+    /* height: 300px; */
     margin: 0 auto;
     padding: 8px 0;
     /* background-color: #1bafd2; */
@@ -192,7 +192,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    position: relative;
+    /* position: relative; */
 }
 
 .desc-time {
@@ -201,7 +201,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin: 50px 0 0;
+    margin: 40px 0 0;
     gap: 32px;
     background-image: url("../../assets/Group900.png");
     background-size: cover;
@@ -253,7 +253,7 @@
 }
 
 .exam_progress {
-    margin: 12px 0 0;
+    margin: 8px 0 0;
     height: 15px;
     display: flex;
     justify-content: center;
@@ -297,7 +297,7 @@
     height: 42px;
     display: flex;
     justify-content: center;
-    margin: 20px 0 20px;
+    margin: 10px 0 10px;
 
 
  

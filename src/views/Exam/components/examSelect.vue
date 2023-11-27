@@ -1,7 +1,11 @@
 <template>
     <div class="showModalSelect">
         <div class="modle">
+            <div class="modal_header">
+                <img src="../../../assets/doctor.png" class="modal_img">
+            </div>
             <div class="select-body">
+
                 <div class="top">
                     <div class="top-title">
                         小课堂
@@ -49,7 +53,7 @@ const questClick = (item: object, event: object) => {
     left: 11%;
     z-index: 2023;
     width: 295px;
-    height: 257px;
+    min-height: 257px;
     // background-image: url("../../assets/Group_901.png");
     // background-size: cover !important;
     // background-repeat: no-repeat;
@@ -60,18 +64,36 @@ const questClick = (item: object, event: object) => {
     // width: 303px;
     // height: 257px;
     width: 100%;
-    height: 100%;
-    background-image: url("@/assets/Group_901.png") !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
+    height: auto;
+    // background-image: url("../../../assets/doctor.png") !important;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    position: relative;
+    background: #fff;
+    border-radius: 16px 16px 16px 16px;
+    // align-items: flex-end;
+}
+
+.modal_header {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: -63px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .modal_img {
+        width: 65px;
+        height: 76px;
+    }
 }
 
 .select-body {
     width: 100%;
-    height: calc(100% - 69px);
-    padding: 0 10px;
+    height: 100%;
+    // height: calc(100% - 69px);
+    margin: 15px 0 0;
+    padding: 0 10px 39px;
 
     .top {
         display: flex;
@@ -122,13 +144,14 @@ const questClick = (item: object, event: object) => {
                 border-radius: 5px 5px 5px 5px;
                 opacity: 1;
                 text-align: center;
+                padding: 5px 0;
 
                 span {
                     font-size: 12px;
                     font-family: PingFang SC, PingFang SC;
                     font-weight: 500;
                     color: #117BD6;
-                    line-height: 14px;
+                    // line-height: 14px;
                     // -webkit-background-clip: text;
                     // -webkit-text-fill-color: transparent;
                 }

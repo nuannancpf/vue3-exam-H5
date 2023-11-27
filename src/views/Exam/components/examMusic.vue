@@ -77,8 +77,8 @@ export default {
       width: 35px;
       height: 35px;
       position: fixed;
-      right: 10px;
-      top: 10px;
+      top: 130px;
+      right: 30px;
       z-index: 999;
 
       .music-icon {

@@ -25,6 +25,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/Exam/index.vue"),
     meta: { hidetopbar: true, title: '爱心传递' }
   },
+  {
+    path: '/eg',
+    name: 'eg',
+    component: () => import("../views/eg/index.vue"),
+    meta: { hidetopbar: true, title: '爱心传递' }
+  },
   // {
   //   path: '/examstart',
   //   component: () => import("@/views/Exam/Examstart.vue"),

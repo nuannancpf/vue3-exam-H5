@@ -1,5 +1,6 @@
 <template>
       <div class="exam">
+          
             <template v-for="(item, ind) in questData">
                   <div class="backgroun_icon" :key="item.id" v-if="list_active === (ind + 1)">
                         <div class="desc">
@@ -13,7 +14,7 @@
                                           <div class="time-num">{{ time }}s</div>
                                     </div>
                               </div>
-                              <examMusic class="exam-music"></examMusic>
+                              
                         </div>
                         <div class="exam_progress">
                               <div class="Group903">
@@ -93,7 +94,7 @@ const submit = async () => { // 提交用户答题结果
             userId: userId,
             optionsList: findCardData.value
       }
-      await submitQuestion(data).the(res => {
+      await submitQuestion(data).then(res => {
             findCardData.value = []
       })
 }
@@ -141,6 +142,7 @@ const init = async () => { // 初始化
       timer.value = null
       cardFlip.value = ""
       progressValue.value = 0
+    
       if (cardsRef.value) {
             cardList.value.forEach((res, index) => {
                   cardsRef.value[index].className = "card"
@@ -308,6 +310,7 @@ const playAgain = (event: string) => { // 再次跳转/ 恭喜你闯关成功
             }
             closeModal()
             getQuest()
+            list_active.value = 1
             init();
       } else {
             isPass.value = 1
