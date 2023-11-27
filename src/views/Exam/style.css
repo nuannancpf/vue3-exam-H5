@@ -211,7 +211,7 @@
 
 }
 .exam-music{
-    position: fixed;
+    position: absolute;
     top: 130px;
     right: 30px;
 }
